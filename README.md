@@ -2,6 +2,7 @@
 
   * Python 3.7
   * Playwright
+  * Docker Installed (if to execute tests on docker)
 
 ## Install the Pytest plugin:
 
@@ -61,6 +62,30 @@ Emulate devices
 
 ```
 pytest --device="iPhone 11"
+```
+
+To create the docker image of playwright python, execute following command and it will take sometime
+
+```
+docker build -t playwright_python .
+```
+
+To execute tests on docker container, execute following command
+
+```
+docker run -it --env-file .env  playwright_python
+```
+
+Also you can use following command as well
+
+```
+docker compose up
+```
+
+After executing tests to view HTML report, excute following command, just replance container_id with your container_id on which teste executed
+
+```
+docker cp conatiner_id:/app/report.html ./report.html
 ```
 
 For more documentation go to playwright and pytest official sites
