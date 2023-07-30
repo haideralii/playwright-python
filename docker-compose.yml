@@ -1,0 +1,6 @@
+version: '3.9'
+services:
+      testing:
+        image: playwright_python
+        env_file:
+          - .env
